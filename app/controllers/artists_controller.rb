@@ -1,5 +1,9 @@
 class ArtistsController < ApplicationController
 
+    def index
+		@artists = Artist.all
+	end
+    
     def show
         @artist = Artist.find(params[:id])
     end
@@ -20,7 +24,7 @@ class ArtistsController < ApplicationController
 
     def update
         @artist = Artist.find(params[:id])
-        @artist = Artist.update(artist_params)
+        Artist.update(artist_params)
         redirect_to artist_path(@artist)
     end
 
